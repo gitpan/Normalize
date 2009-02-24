@@ -10,11 +10,11 @@ Normalize - normalize scores between 0 and 1.
 
 =head1 VERSION
 
-Version 0.03
+Version 0.31
 
 =cut
 
-our $VERSION = '0.3';
+our $VERSION = '0.31';
 
 =head1 SYNOPSIS
 
@@ -87,6 +87,7 @@ Each score is scaled according to how close it to the best result, wich will alw
 =head3	%opts
 		
 round_to - default value 0.01. Rounding precision. For more info see L<Math::Round::Var>
+
 min_default  - by default eq round_to value. Need for prevent delete on zero in normalize_to_min()
 		
 		
@@ -148,9 +149,11 @@ sub get {
 Each score is scaled according to how close it to the smaller result, wich will always have a score of 1.
 $score_set_data - hashref {key1 => score1, key2 => score2,..} or arrayref [score1, score2, ...]
 options:
+
 	%opts = (
-				min_default => 0.01#by default = round_to value. Need for prevent delete on zero in I<normalize_to_min()>
+				min_default => 0.01#by default = round_to value. Need for prevent delete on zero in normalize_to_min()
 			)
+			
 return same data structure (hashref or arrayref)	
 
 =cut
@@ -286,7 +289,8 @@ sub _array_max_is_better {
 =head1 SEE ALSO
 
 L<Math::Round::Var> - Variations on rounding.
-Idea for this module and normalization Algoritm from book I<Programming Collective Intelligence: Building Smart Web 2.0 Applications By Toby Segaran)> L<http://books.google.com/books?id=fEsZ3Ey-Hq4C>
+
+Idea for this module and normalization Algoritm from book "Programming Collective Intelligence: Building Smart Web 2.0 Applications By Toby Segaran)" L<http://books.google.com/books?id=fEsZ3Ey-Hq4C>
 
 =head1 AUTHOR
 
